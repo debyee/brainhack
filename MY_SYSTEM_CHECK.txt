@@ -1,0 +1,103 @@
+-------------------------------- general ---------------------------------
+architecture:         64bit 
+system:               Darwin
+release:              15.6.0
+version:              Darwin Kernel Version 15.6.0: Thu Jun 23 18:25:34 PDT 2016; root:xnu-3248.60.10~1/RELEASE_X86_64
+distribution:         10.11.6 x86_64
+number of CPUs:       8
+apparent login shell: bash  (current shell is csh)
+shell RC file:        .cshrc (exists)
+
+--------------------- AFNI and related program tests ---------------------
+which afni           : /Users/debbieyee/abin/afni
+afni version         : Precompiled binary macosx_10.7_Intel_64: Jan  3 2017 
+AFNI_version.txt     : AFNI_17.0.00, macosx_10.7_Intel_64, Jan 03 2017
+which python         : /Library/Frameworks/Python.framework/Versions/2.7/bin/python
+python version       : 2.7.12
+which R              : /usr/local/bin/R
+R version            : R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+which tcsh           : /bin/tcsh
+
+instances of various programs found in PATH:
+    afni    : 1   (/Users/debbieyee/abin/afni)
+    R       : 1   (/Library/Frameworks/R.framework/Versions/3.3/Resources/bin/R)
+    python  : 5 
+      /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+      /anaconda/bin/python2.7
+      /Users/debbieyee/anaconda/bin/python2.7
+      /usr/bin/python
+      /usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+    python2 : 4 
+      /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+      /anaconda/bin/python2.7
+      /Users/debbieyee/anaconda/bin/python2.7
+      /usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+    python3 : 0 
+
+
+testing ability to start various programs...
+    afni                 : success
+    suma                 : success
+    3dSkullStrip         : success
+    uber_subject.py      : success
+    3dAllineate          : FAILURE
+        dyld: Library not loaded: /usr/local/lib/libgomp.1.dylib
+          Referenced from: /Users/debbieyee/abin/3dAllineate
+          Reason: image not found
+    3dRSFC               : success
+    SurfMesh             : success
+
+checking for R packages...
+    rPkgsInstall -pkgs ALL -check : success
+
+checking for $HOME files...
+    .afnirc                   : found
+    .sumarc                   : found
+    .afni/help/all_progs.COMP : found
+
+------------------------------ python libs -------------------------------
+++ module 'PyQt4' found at /usr/local/lib/python2.7/site-packages/PyQt4
+++ module loaded: PyQt4
+
+-------------------------------- env vars --------------------------------
+PATH = /Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/usr/local/fsl/bin:/sw/bin:/sw/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/usr/local/fsl/bin:/Users/debbieyee/afni:/opt/local/bin:/opt/local/sbin://anaconda/bin:/Users/debbieyee/anaconda/bin:/Users/debbieyee/anaconda/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Library/TeX/texbin:/Users/debbieyee/abin:/Users/debbieyee/abin:/usr/X11R6/bin:/Users/debbieyee/abin:/Users/debbieyee/abin
+
+PYTHONPATH = /usr/local/lib/python2.7/site-packages
+
+R_LIBS = 
+LD_LIBRARY_PATH = 
+DYLD_LIBRARY_PATH = 
+DYLD_FALLBACK_LIBRARY_PATH = 
+
+------------------------------ data checks -------------------------------
+data dir : found AFNI_data6   under $HOME
+           top history: 30 Dec 2016 [rickr]: applied updated FS reordering
+data dir : found suma_demo    under $HOME
+           top history: .../SUMA_data/Build_tmp on Wed Aug 20 10:04:23 EDT 2014
+data dir : found FATCAT_DEMO  under $HOME/AFNI_demos
+           top history: ...CAT/FATCAT_DEMO.Distro, Wed Apr  8 12:41:00 EDT 2015
+data dir : found afni_handouts under $HOME
+atlas    : found TT_N27+tlrc  under /Users/debbieyee/abin
+
+------------------------------ OS specific -------------------------------
+which brew           : /usr/local/bin/brew
+brew version         : Homebrew 1.1.6
+which port           : /opt/local/bin/port
+port version         : Usage: port
+which fink           : /sw/bin/fink
+fink version         : Package manager version: 0.38.3
+
+++ found valid link /usr/local/lib/libglib-2.0.dylib
+   to ../Cellar/glib/2.50.2/lib/libglib-2.0.dylib
+++ found 1 dylib files under '/opt/X11/lib/flat_namespace'
+   -- found 'libXt' dylib files, e.g. /opt/X11/lib/flat_namespace/libXt.6.dylib
+** env var DYLD_LIBRARY_PATH is not set to contain /opt/X11/lib/flat_namespace
+   (so afni and suma may fail)
+
+============================ summary comments ============================
+*  login shell 'bash', trusting user to translate from 'tcsh'
+*  shell bash: consider sourcing (non-login) .bashrc from (login) .bash_profile
+*  AFNI programs show FAILURE
+*  consider linking /usr/local/Cellar/gcc/6.3.0_1/lib/gcc/6/libgomp.1.dylib under /usr/local/lib
+*  cannot tell if DYLD_LIBRARY_PATH includes /opt/X11/lib/flat_namespace
+
